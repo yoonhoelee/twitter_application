@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title  %}
+Compare User
+{% endblock  %}
+
+{% block lead  %}
+The following user is more likely to tweet this
+<br>
+<br>
+{{prediction}}
+{% endblock  %}
+
+{% block main_body  %}
+
+{% if users %}
+To compare press the button, this webpage will use Logistic Regression to predict results
+
+<form method="POST" action='/compare'>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1"></label>
+        <select name="user_1" class="form-control" id="exampleFormControlSelect1">
+            {% for user in users %}
+            <option value={{user.username}}>{{user.username}}</option>
+            {% endfor %}
+        </select>
+        <label for="exampleFormControlSelect2"></label>
+        <select name="user_2" class="form-control" id="exampleFormControlSelect2">
+            {% for user in users %}
+            <option value={{user.username}}>{{user.username}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <input name="input_tweet" class="form-control" type="text" placeholder="Input Tweet here">
+    <br>
+    <input type="submit" class="btn btn-primary" value="Compare" />
+</form>
+<br>
+{% endif %}
+
+{% endblock  %}

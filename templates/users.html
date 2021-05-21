@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block title  %}
+Twit App
+{% endblock  %}
+
+{% block lead  %}
+User and Tweet
+{% endblock  %}
+
+
+{% block main_body  %}
+This is the list
+{% if data %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Username</th>
+      <th scope="col">Full_name</th>
+      <th scope="col">Followers</th>
+      <th scope="col">Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for data in data %}
+    <tr>
+      <th scope="row">{{ data.id }}</th>
+      <td>{{ data.username }}</td>
+      <td>{{ data.full_name }}</td>
+      <td>{{ data.followers }}</td>
+      <td>{{ data.location }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock  %}

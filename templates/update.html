@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title  %}
+Update Usernames
+{% if message %}
+{{ message }}
+{% endif %}
+{% endblock  %}
+
+{% block lead  %}
+Update username here
+{% endblock  %}
+
+{% block main_body  %}
+To update press the update button
+
+
+<form method="POST" action="/update/">
+  <input name="username" class="form-control" type="text" placeholder="Original">
+  <div class="form-group">
+    <input name="change_name" class="form-control" type="text" placeholder="Updated">
+  </div>
+  <input type="submit" class="btn btn-primary" value="Update" />
+</form>
+{% endblock  %}
